@@ -13,8 +13,24 @@
 
     <v-main>
       <h1>dine</h1>
-      <h1>dine</h1>
-      <h1>dine</h1>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque iusto
+        architecto dicta aperiam quo, odit laudantium neque, unde recusandae
+        illo cumque enim ullam dignissimos doloribus, sunt quae ratione
+        asperiores possimus.
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque iusto
+        architecto dicta aperiam quo, odit laudantium neque, unde recusandae
+        illo cumque enim ullam dignissimos doloribus, sunt quae ratione
+        asperiores possimus.
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque iusto
+        architecto dicta aperiam quo, odit laudantium neque, unde recusandae
+        illo cumque enim ullam dignissimos doloribus, sunt quae ratione
+        asperiores possimus.
+      </p>
     </v-main>
   </v-app>
 </template>
