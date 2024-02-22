@@ -13,13 +13,34 @@
 
       <v-app-bar-title>Application</v-app-bar-title>
 
+      <!-- icons -->
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
       <input type="search" name="" id="" />
 
+      <v-btn
+        v-if="$vuetify.theme.name === 'light'"
+        @click="$vuetify.theme.name = 'dark'"
+        icon
+      >
+        <v-icon>mdi-theme-light-dark</v-icon>
+      </v-btn>
+
+      <v-btn v-else @click="$vuetify.theme.name = 'light'" icon>
+        <v-icon>mdi-theme-light-dark</v-icon>
+      </v-btn>
+
       <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
+        <v-icon>mdi-bell</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-cog</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-account</v-icon>
       </v-btn>
     </v-app-bar>
 
