@@ -6,7 +6,15 @@ const routes = [
     name: "home",
     component: () =>
       import(
-        /* webpackChunkName: "about" */ "../pages/dashboard/dashboard.vue"
+        /* webpackChunkName: "dashboard" */ "../pages/dashboard/dashboard.vue"
+      ),
+  },
+  {
+    path: "/MangeTeam",
+    name: "MangeTeam",
+    component: () =>
+      import(
+        /* webpackChunkName: "MangeTeam" */ "../pages/mangeTeam/mangeTeam.vue"
       ),
   },
 ];

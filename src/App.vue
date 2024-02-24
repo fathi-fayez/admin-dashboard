@@ -51,7 +51,13 @@
       <v-divider></v-divider>
       <!-- list two -->
       <v-list>
-        <v-list-item v-for="(item, index) in itemsTwo" :key="index" link>
+        <v-list-item
+          v-for="(item, index) in itemsTwo"
+          :key="index"
+          link
+          @click="navigate(item.path)"
+          :class="{ 'active-item': isActive(item.path) }"
+        >
           <v-row>
             <v-col cols="auto">
               <v-list-item-icon>
@@ -69,7 +75,13 @@
       <v-divider></v-divider>
       <!-- list three -->
       <v-list>
-        <v-list-item v-for="(item, index) in itemsThree" :key="index" link>
+        <v-list-item
+          v-for="(item, index) in itemsThree"
+          :key="index"
+          link
+          @click="navigate(item.path)"
+          :class="{ 'active-item': isActive(item.path) }"
+        >
           <v-row>
             <v-col cols="auto">
               <v-list-item-icon>
@@ -142,7 +154,7 @@ const currentRoute = ref("");
 
 const itemsOne = ref([
   { text: "Dashboard", icon: "mdi-home-account", path: "/dashboard" },
-  { text: "Mange Team", icon: "mdi-account-multiple", path: "/home" },
+  { text: "Mange Team", icon: "mdi-account-multiple", path: "/MangeTeam" },
   { text: "Contacts Information", icon: "mdi-contacts", path: "/home" },
   {
     text: "Invoices Balances",
