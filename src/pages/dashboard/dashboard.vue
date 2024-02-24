@@ -1,5 +1,6 @@
 <template>
   <v-app id="inspire">
+    <h1>dashboard</h1>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
       expedita vero illum nisi. Dignissimos, soluta cum deleniti, recusandae quo

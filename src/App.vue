@@ -27,7 +27,13 @@
 
       <!-- list one -->
       <v-list>
-        <v-list-item v-for="(item, index) in itemsOne" :key="index" link>
+        <v-list-item
+          v-for="(item, index) in itemsOne"
+          :key="index"
+          :class="{ 'active-item': isActive(item.path) }"
+          link
+          @click="navigate(item.path)"
+        >
           <v-row>
             <v-col cols="auto">
               <v-list-item-icon>
@@ -120,47 +126,56 @@
 
     <!-- main content area -->
     <v-main>
-      <h1>dine</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque iusto
-        architecto dicta aperiam quo, odit laudantium neque, unde recusandae
-        illo cumque enim ullam dignissimos doloribus, sunt quae ratione
-        asperiores possimus.
-      </p>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque iusto
-        architecto dicta aperiam quo, odit laudantium neque, unde recusandae
-        illo cumque enim ullam dignissimos doloribus, sunt quae ratione
-        asperiores possimus.
-      </p>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque iusto
-        architecto dicta aperiam quo, odit laudantium neque, unde recusandae
-        illo cumque enim ullam dignissimos doloribus, sunt quae ratione
-        asperiores possimus.
-      </p>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const drawer = ref(null);
+
+const currentRoute = ref("");
+
 const itemsOne = ref([
-  { text: "Dashboard", icon: "mdi-home-account" },
-  { text: "Mange Team", icon: "mdi-account-multiple" },
-  { text: "Contacts Information", icon: "mdi-contacts" },
-  { text: "Invoices Balances", icon: "mdi-receipt-text-outline" },
+  { text: "Dashboard", icon: "mdi-home-account", path: "/dashboard" },
+  { text: "Mange Team", icon: "mdi-account-multiple", path: "/home" },
+  { text: "Contacts Information", icon: "mdi-contacts", path: "/home" },
+  {
+    text: "Invoices Balances",
+    icon: "mdi-receipt-text-outline",
+    path: "/home",
+  },
 ]);
+
 const itemsTwo = ref([
-  { text: "Profile Form", icon: "mdi-account" },
-  { text: "Calendar", icon: "mdi-calendar-blank" },
-  { text: "F&Q Page", icon: "mdi-help-circle" },
+  { text: "Profile Form", icon: "mdi-account", path: "/home" },
+  { text: "Calendar", icon: "mdi-calendar-blank", path: "/home" },
+  { text: "F&Q Page", icon: "mdi-help-circle", path: "/home" },
 ]);
+
 const itemsThree = ref([
-  { text: "Bar Chart", icon: "mdi-poll" },
-  { text: "Pie Chart", icon: "mdi-chart-pie" },
-  { text: "Line Chart", icon: "mdi-chart-timeline-variant" },
+  { text: "Bar Chart", icon: "mdi-poll", path: "/home" },
+  { text: "Pie Chart", icon: "mdi-chart-pie", path: "/home" },
+  { text: "Line Chart", icon: "mdi-chart-timeline-variant", path: "/home" },
 ]);
+
+// navigate function
+const navigate = (path) => {
+  currentRoute.value = path;
+  router.push(path);
+};
+
+// check active item function
+const isActive = (path) => {
+  return currentRoute.value === path;
+};
 </script>
+<style scoped>
+.active-item {
+  background-color: rgb(75, 73, 73);
+}
+</style>
