@@ -165,7 +165,7 @@ const itemsOne = ref([
   {
     text: "Invoices Balances",
     icon: "mdi-receipt-text-outline",
-    path: "/home",
+    path: "/InvoicesBalances",
   },
 ]);
 

@@ -1,49 +1,70 @@
 <template>
-  <!-- toolbar component -->
-  <v-toolbar flat color="red">
-    <v-toolbar-title>Demo</v-toolbar-title>
-    <v-toolbar-items>
-      <v-btn>COLUMNS</v-btn>
-      <v-btn>FILTERS</v-btn>
-      <v-btn>DENSITY</v-btn>
-      <v-btn>EXPORT</v-btn>
-    </v-toolbar-items>
-    <v-spacer></v-spacer>
-  </v-toolbar>
+  <v-container>
+    <h1>Contacts</h1>
+    <v-toolbar flat color="white">
+      <v-toolbar-title>Filter By:</v-toolbar-title>
+      <!-- Filter menu -->
+      <v-menu>
+        <template v-slot:activator="{ props }">
+          <v-btn color="primary" v-bind="props">Filter</v-btn>
+        </template>
+        <v-list>
+          <v-list-item
+            v-for="(filter, index) in filters"
+            :key="index"
+            :value="index"
+            @click="setFilterKey(filter.key)"
+          >
+            <v-list-item-title>{{ filter.label }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+      <!-- Column specifier menu -->
+      <v-menu :close-on-content-click="false">
+        <template v-slot:activator="{ props }">
+          <v-btn color="primary" v-bind="props">Columns</v-btn>
+        </template>
+        <v-list>
+          <v-list-item v-for="(header, index) in headers" :key="index">
+            <v-list-item-content
+              class="d-flex align-center justify-space-between"
+            >
+              <v-list-item-icon>
+                <v-switch v-model="header.visible" color="primary"></v-switch>
+              </v-list-item-icon>
+              <v-list-item-title @click="toggleColumn(header.value)">
+                {{ header.title }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-toolbar>
 
-  <!-- table component -->
-  <v-table fixed-header height="600px">
-    <thead>
-      <tr>
-        <th class="text-left">Id</th>
-        <th class="text-left">Name</th>
-        <th class="text-left">Email</th>
-        <th class="text-left">Age</th>
-        <th class="text-left">Phone</th>
-        <th class="text-left">Address</th>
-        <th class="text-left">City</th>
-        <th class="text-left">ZipCode</th>
-        <th class="text-left">RegistrarId</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="item in Members" :key="item.name">
-        <td>{{ item.id }}</td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.email }}</td>
-        <td>{{ item.age }}</td>
-        <td>{{ item.phone }}</td>
-        <td>{{ item.address }}</td>
-        <td>{{ item.city }}</td>
-        <td>{{ item.zipCode }}</td>
-        <td>{{ item.registrarId }}</td>
-      </tr>
-    </tbody>
-  </v-table>
+    <!-- input field -->
+    <v-text-field
+      v-model="search"
+      :label="searchLabel"
+      solo-inverted
+      prepend-inner-icon="mdi-magnify"
+    ></v-text-field>
+
+    <!-- table of data -->
+    <v-data-table
+      :headers="visibleHeaders"
+      :items="filteredMembers"
+      class="elevation-1"
+    >
+    </v-data-table>
+  </v-container>
 </template>
-<script setup>
-import { ref } from "vue";
 
+<script setup>
+import { ref, computed } from "vue";
+
+const search = ref("");
+const filterKey = ref("");
+const searchLabel = ref("Select filter type");
 const Members = ref([
   {
     id: 1,
@@ -167,18 +188,51 @@ const Members = ref([
     registrarId: 92197,
   },
 ]);
+
+const headers = ref([
+  { title: "Id", value: "id", visible: true },
+  { title: "Name", value: "name", visible: true },
+  { title: "Email", value: "email", visible: true },
+  { title: "Age", value: "age", visible: true },
+  { title: "Phone", value: "phone", visible: true },
+  { title: "Address", value: "address", visible: true },
+  { title: "City", value: "city", visible: true },
+  { title: "ZipCode", value: "zipCode", visible: true },
+  { title: "RegistrarId", value: "registrarId", visible: true },
+]);
+
+const filters = ref([
+  { key: "name", label: "Name", active: true },
+  { key: "age", label: "Age", active: true },
+  { key: "id", label: "Id", active: true },
+]);
+
+const setFilterKey = (key) => {
+  filterKey.value = key;
+  searchLabel.value = key;
+};
+
+const filteredMembers = computed(() => {
+  let filtered = Members.value;
+  if (search.value && filterKey.value) {
+    filtered = filtered.filter((member) => {
+      return member[filterKey.value]
+        .toString()
+        .toLowerCase()
+        .includes(search.value.toLowerCase());
+    });
+  }
+  return filtered;
+});
+
+const visibleHeaders = computed(() => {
+  return headers.value.filter((header) => header.visible);
+});
+
+const toggleColumn = (value) => {
+  const header = headers.value.find((h) => h.value === value);
+  if (header) {
+    header.visible = !header.visible;
+  }
+};
 </script>
-<style>
-.admin-box {
-  background-color: #0873ff;
-  text-align: center;
-}
-.user-box {
-  background-color: rgb(21, 203, 173);
-  text-align: center;
-}
-.manager-box {
-  background-color: #7b1fa2;
-  text-align: center;
-}
-</style>

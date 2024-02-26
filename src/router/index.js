@@ -26,6 +26,14 @@ const routes = [
       ),
   },
   {
+    path: "/InvoicesBalances",
+    name: "Invoices Balances",
+    component: () =>
+      import(
+        /* webpackChunkName: "Calendar" */ "../pages/Invoices Balances/invoicesBalances.vue"
+      ),
+  },
+  {
     path: "/Calendar",
     name: "Calendar",
     component: () =>
