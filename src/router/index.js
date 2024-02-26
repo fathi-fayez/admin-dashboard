@@ -17,6 +17,22 @@ const routes = [
         /* webpackChunkName: "MangeTeam" */ "../pages/mangeTeam/mangeTeam.vue"
       ),
   },
+  {
+    path: "/ContactsInformation",
+    name: "ContactsInformation",
+    component: () =>
+      import(
+        /* webpackChunkName: "ContactsInformation" */ "../pages/contacts Information/contactInfo.vue"
+      ),
+  },
+  {
+    path: "/Calendar",
+    name: "Calendar",
+    component: () =>
+      import(
+        /* webpackChunkName: "Calendar" */ "../pages/Calendar/calendar.vue"
+      ),
+  },
 ];
 
 const router = createRouter({

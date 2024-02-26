@@ -138,7 +138,9 @@
 
     <!-- main content area -->
     <v-main>
-      <router-view />
+      <div class="container">
+        <router-view />
+      </div>
     </v-main>
   </v-app>
 </template>
@@ -155,7 +157,11 @@ const currentRoute = ref("");
 const itemsOne = ref([
   { text: "Dashboard", icon: "mdi-home-account", path: "/dashboard" },
   { text: "Mange Team", icon: "mdi-account-multiple", path: "/MangeTeam" },
-  { text: "Contacts Information", icon: "mdi-contacts", path: "/home" },
+  {
+    text: "Contacts Information",
+    icon: "mdi-contacts",
+    path: "/ContactsInformation",
+  },
   {
     text: "Invoices Balances",
     icon: "mdi-receipt-text-outline",
@@ -165,7 +171,7 @@ const itemsOne = ref([
 
 const itemsTwo = ref([
   { text: "Profile Form", icon: "mdi-account", path: "/home" },
-  { text: "Calendar", icon: "mdi-calendar-blank", path: "/home" },
+  { text: "Calendar", icon: "mdi-calendar-blank", path: "/Calendar" },
   { text: "F&Q Page", icon: "mdi-help-circle", path: "/home" },
 ]);
 
@@ -187,6 +193,9 @@ const isActive = (path) => {
 };
 </script>
 <style scoped>
+.container {
+  margin: 20px;
+}
 .active-item {
   background-color: rgb(75, 73, 73);
 }
