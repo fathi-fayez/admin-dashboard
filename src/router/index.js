@@ -34,6 +34,14 @@ const routes = [
       ),
   },
   {
+    path: "/ProfileForm",
+    name: "Profile Form",
+    component: () =>
+      import(
+        /* webpackChunkName: "Calendar" */ "../pages/Profile Form/profileForm.vue"
+      ),
+  },
+  {
     path: "/Calendar",
     name: "Calendar",
     component: () =>
