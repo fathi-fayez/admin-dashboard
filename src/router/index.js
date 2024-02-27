@@ -41,6 +41,14 @@ const routes = [
         /* webpackChunkName: "Calendar" */ "../pages/Calendar/calendar.vue"
       ),
   },
+  {
+    path: "/F&QPage",
+    name: "F&Q Page",
+    component: () =>
+      import(
+        /* webpackChunkName: "Calendar" */ "../pages/F&Q Page/F&QPage.vue"
+      ),
+  },
 ];
 
 const router = createRouter({

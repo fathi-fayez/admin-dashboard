@@ -167,7 +167,7 @@ const itemsOne = ref([
 const itemsTwo = ref([
   { text: "Profile Form", icon: "mdi-account", path: "/ProfileForm" },
   { text: "Calendar", icon: "mdi-calendar-blank", path: "/Calendar" },
-  { text: "F&Q Page", icon: "mdi-help-circle", path: "/home" },
+  { text: "F&Q Page", icon: "mdi-help-circle", path: "/F&QPage" },
 ]);
 
 const itemsThree = ref([
