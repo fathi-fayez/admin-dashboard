@@ -162,11 +162,6 @@ const itemsOne = ref([
     icon: "mdi-contacts",
     path: "/ContactsInformation",
   },
-  {
-    text: "Invoices Balances",
-    icon: "mdi-receipt-text-outline",
-    path: "/InvoicesBalances",
-  },
 ]);
 
 const itemsTwo = ref([
