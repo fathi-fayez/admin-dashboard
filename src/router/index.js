@@ -57,6 +57,14 @@ const routes = [
         /* webpackChunkName: "Bar Chart" */ "../pages/Bar Chart/barChart.vue"
       ),
   },
+  {
+    path: "/PieChart",
+    name: "Pie Chart",
+    component: () =>
+      import(
+        /* webpackChunkName: "Pie Chart" */ "../pages/Pie Chart/pieChart.vue"
+      ),
+  },
 ];
 
 const router = createRouter({

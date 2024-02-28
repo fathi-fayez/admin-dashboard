@@ -172,7 +172,7 @@ const itemsTwo = ref([
 
 const itemsThree = ref([
   { text: "Bar Chart", icon: "mdi-poll", path: "/BarChart" },
-  { text: "Pie Chart", icon: "mdi-chart-pie", path: "/home" },
+  { text: "Pie Chart", icon: "mdi-chart-pie", path: "/PieChart" },
   { text: "Line Chart", icon: "mdi-chart-timeline-variant", path: "/home" },
 ]);
 
