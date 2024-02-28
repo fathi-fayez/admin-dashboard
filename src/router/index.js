@@ -30,7 +30,7 @@ const routes = [
     name: "Profile Form",
     component: () =>
       import(
-        /* webpackChunkName: "Calendar" */ "../pages/Profile Form/profileForm.vue"
+        /* webpackChunkName: "Profile Form" */ "../pages/Profile Form/profileForm.vue"
       ),
   },
   {
@@ -46,7 +46,15 @@ const routes = [
     name: "F&Q Page",
     component: () =>
       import(
-        /* webpackChunkName: "Calendar" */ "../pages/F&Q Page/F&QPage.vue"
+        /* webpackChunkName: "F&Q Page" */ "../pages/F&Q Page/F&QPage.vue"
+      ),
+  },
+  {
+    path: "/BarChart",
+    name: "Bar Chart",
+    component: () =>
+      import(
+        /* webpackChunkName: "Bar Chart" */ "../pages/Bar Chart/barChart.vue"
       ),
   },
 ];
