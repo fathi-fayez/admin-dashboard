@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
   {
-    path: "/dashboard",
+    path: "/",
     name: "home",
     component: () =>
       import(
@@ -63,6 +63,22 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "Pie Chart" */ "../pages/Pie Chart/pieChart.vue"
+      ),
+  },
+  {
+    path: "/LineChart",
+    name: "Line Chart",
+    component: () =>
+      import(
+        /* webpackChunkName: Line Chart" */ "../pages/Line Chart/lineChart.vue"
+      ),
+  },
+  {
+    path: "/Geography",
+    name: "Geography",
+    component: () =>
+      import(
+        /* webpackChunkName: "Geography" */ "../pages/Geography/Geography.vue"
       ),
   },
 ];

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div><canvas id="chartCanvas"></canvas></div>
+    <div class="d-flex justify-center"><canvas id="chartCanvas"></canvas></div>
   </div>
 </template>
 

@@ -1,39 +1,13 @@
 <template>
-  <v-app id="inspire">
+  <div class="dashboard">
     <h1>dashboard</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
-      expedita vero illum nisi. Dignissimos, soluta cum deleniti, recusandae quo
-      ab reiciendis accusamus nobis modi incidunt similique suscipit? Natus,
-      veritatis voluptas.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
-      expedita vero illum nisi. Dignissimos, soluta cum deleniti, recusandae quo
-      ab reiciendis accusamus nobis modi incidunt similique suscipit? Natus,
-      veritatis voluptas.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
-      expedita vero illum nisi. Dignissimos, soluta cum deleniti, recusandae quo
-      ab reiciendis accusamus nobis modi incidunt similique suscipit? Natus,
-      veritatis voluptas.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
-      expedita vero illum nisi. Dignissimos, soluta cum deleniti, recusandae quo
-      ab reiciendis accusamus nobis modi incidunt similique suscipit? Natus,
-      veritatis voluptas.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
-      expedita vero illum nisi. Dignissimos, soluta cum deleniti, recusandae quo
-      ab reiciendis accusamus nobis modi incidunt similique suscipit? Natus,
-      veritatis voluptas.
-    </p>
-  </v-app>
+    <rowOne />
+    <rowTwo />
+    <rowThree />
+  </div>
 </template>
 
 <script setup>
+import rowOne from "./rowOne.vue";
 import { ref } from "vue";
 </script>

@@ -155,7 +155,7 @@ const drawer = ref(null);
 const currentRoute = ref("");
 
 const itemsOne = ref([
-  { text: "Dashboard", icon: "mdi-home-account", path: "/dashboard" },
+  { text: "Dashboard", icon: "mdi-home-account", path: "/" },
   { text: "Mange Team", icon: "mdi-account-multiple", path: "/MangeTeam" },
   {
     text: "Contacts Information",
@@ -173,7 +173,16 @@ const itemsTwo = ref([
 const itemsThree = ref([
   { text: "Bar Chart", icon: "mdi-poll", path: "/BarChart" },
   { text: "Pie Chart", icon: "mdi-chart-pie", path: "/PieChart" },
-  { text: "Line Chart", icon: "mdi-chart-timeline-variant", path: "/home" },
+  {
+    text: "Line Chart",
+    icon: "mdi-chart-timeline-variant",
+    path: "/LineChart",
+  },
+  {
+    text: "Geography",
+    icon: "mdi-chart-timeline-variant",
+    path: "/Geography",
+  },
 ]);
 
 // navigate function
