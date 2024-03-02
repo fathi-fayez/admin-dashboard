@@ -104,10 +104,13 @@
       <v-app-bar-title>Application</v-app-bar-title>
 
       <!-- icons -->
+
+      <!-- search icon -->
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
 
+      <!-- Change theme icons -->
       <v-btn
         v-if="$vuetify.theme.name === 'light'"
         @click="$vuetify.theme.name = 'dark'"
@@ -120,17 +123,28 @@
         <v-icon>mdi-theme-light-dark</v-icon>
       </v-btn>
 
+      <!-- notifications icon -->
       <v-btn icon>
         <v-icon>mdi-bell</v-icon>
       </v-btn>
 
+      <!-- setting icon -->
       <v-btn icon>
         <v-icon>mdi-cog</v-icon>
       </v-btn>
 
-      <v-btn icon>
-        <v-icon>mdi-account</v-icon>
-      </v-btn>
+      <!-- profile items icon -->
+      <v-menu>
+        <template v-slot:activator="{ props }">
+          <v-btn icon="mdi-account" v-bind="props"></v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item v-for="(item, i) in items" :key="i">
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
 
     <!-- main content area -->
@@ -148,6 +162,12 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const drawer = ref(null);
+const items = ref([
+  { title: "Click Me" },
+  { title: "Click Me" },
+  { title: "Click Me" },
+  { title: "Click Me 2" },
+]);
 
 const currentRoute = ref("");
 
