@@ -1,13 +1,12 @@
 <template>
   <div class="dashboard">
-    <h1>dashboard</h1>
-    <rowOne />
-    <rowTwo />
-    <rowThree />
+    <h1 class="mb-5">dashboard</h1>
+    <row1 />
+    <row2 />
   </div>
 </template>
 
 <script setup>
-import rowOne from "./rowOne.vue";
-import { ref } from "vue";
+import row1 from "./row1.vue";
+import row2 from "./row2.vue";
 </script>

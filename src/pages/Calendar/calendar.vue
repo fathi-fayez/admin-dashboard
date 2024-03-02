@@ -137,4 +137,9 @@ b {
   max-width: 1100px;
   margin: 0 auto;
 }
+@media (max-width: 768px) {
+  .demo-app-sidebar {
+    display: none;
+  }
+}
 </style>

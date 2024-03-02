@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="d-flex justify-center"><canvas id="chartCanvas"></canvas></div>
+    <div class="d-flex justify-center align-center">
+      <canvas id="chartCanvas"></canvas>
+    </div>
   </div>
 </template>
 

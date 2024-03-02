@@ -3,12 +3,10 @@
     <!-- drawer sidebar -->
     <v-navigation-drawer v-model="drawer" app>
       <!-- avatar -->
-      <v-row class="justify-center">
+      <v-row class="justify-center mt-5">
         <v-col cols="auto">
           <v-avatar>
-            <v-img
-              src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-light-atom.svg"
-            ></v-img>
+            <v-img src="../src/assets/image.png"></v-img>
           </v-avatar>
         </v-col>
         <v-col cols="auto">
@@ -109,7 +107,6 @@
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
-      <input type="search" name="" id="" />
 
       <v-btn
         v-if="$vuetify.theme.name === 'light'"
