@@ -16,6 +16,10 @@ export default {
       type: Object,
       required: true,
     },
+    backgroundColor: {
+      type: Object,
+      required: true,
+    },
     canvasId: {
       type: String,
       default: "chartCanvas",
@@ -27,7 +31,7 @@ export default {
       datasets: [
         {
           data: props.chartData,
-          backgroundColor: ["#03A9F4", "#9E9E9E"],
+          backgroundColor: props.backgroundColor,
           borderColor: ["rgb(255, 99, 132)", "rgb(255, 159, 64)"],
           borderWidth: 0,
         },
@@ -47,3 +51,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+canvas {
+  height: 50px;
+  max-height: 100%;
+}
+</style>

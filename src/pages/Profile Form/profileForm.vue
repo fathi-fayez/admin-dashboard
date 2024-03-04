@@ -6,30 +6,34 @@
           <v-text-field
             v-model="firstName"
             label="First Name"
-            :error-messages="firstNameErrors"
+            :error-messages="showFirstNameErrors ? firstNameErrors : []"
             required
+            @input="debounceValidation(validateFirstName)"
           ></v-text-field>
         </v-col>
         <v-col cols="6">
           <v-text-field
             v-model="lastName"
             label="Last Name"
-            :error-messages="lastNameErrors"
+            :error-messages="showLastNameErrors ? lastNameErrors : []"
             required
+            @input="debounceValidation(validateLastName)"
           ></v-text-field>
         </v-col>
       </v-row>
       <v-text-field
         v-model="email"
         label="Email"
-        :error-messages="emailErrors"
+        :error-messages="showEmailErrors ? emailErrors : []"
         required
+        @input="debounceValidation(validateEmail)"
       ></v-text-field>
       <v-text-field
         v-model="contactNumber"
         label="Contact Number"
-        :error-messages="contactNumberErrors"
+        :error-messages="showContactNumberErrors ? contactNumberErrors : []"
         required
+        @input="debounceValidation(validateContactNumber)"
       ></v-text-field>
       <v-text-field v-model="address1" label="Address 1"></v-text-field>
       <v-text-field v-model="address2" label="Address 2"></v-text-field>
@@ -63,13 +67,6 @@ const roles = ["Admin", "Manager", "User"];
 
 const handleSubmit = () => {
   // Validation
-  const firstNameValid = firstName.value.trim().length >= 3;
-  const lastNameValid = lastName.value.trim().length >= 3;
-  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
-  const contactNumberValid = /^[0-9]{3,4}-?[0-9]{3,4}-?[0-9]{3,4}$/.test(
-    contactNumber.value.trim()
-  );
-
   valid.value =
     firstNameValid && lastNameValid && emailValid && contactNumberValid;
 
@@ -97,22 +94,50 @@ const lastNameErrors = ref([]);
 const emailErrors = ref([]);
 const contactNumberErrors = ref([]);
 
-watch(() => {
+const validateFirstName = () => {
   firstNameErrors.value =
     firstName.value.trim().length >= 3
       ? []
       : ["This field is required & min 3 characters"];
+};
+
+const validateLastName = () => {
   lastNameErrors.value =
     lastName.value.trim().length >= 3
       ? []
       : ["This field is required & min 3 characters"];
+};
+
+const validateEmail = () => {
   emailErrors.value = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())
     ? []
     : ["Please provide a valid email address"];
+};
+
+const validateContactNumber = () => {
   contactNumberErrors.value = /^[0-9]{3,4}-?[0-9]{3,4}-?[0-9]{3,4}$/.test(
     contactNumber.value.trim()
   )
     ? []
     : ["Please provide a valid Phone number"];
+};
+
+let showFirstNameErrors = false;
+let showLastNameErrors = false;
+let showEmailErrors = false;
+let showContactNumberErrors = false;
+
+const debounceValidation = (func) => {
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(func, 500);
+};
+
+let timeoutId;
+
+watch([firstName, lastName, email, contactNumber], () => {
+  showFirstNameErrors = true;
+  showLastNameErrors = true;
+  showEmailErrors = true;
+  showContactNumberErrors = true;
 });
 </script>

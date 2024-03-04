@@ -1,4 +1,6 @@
 <template>
+  <h1 style="color: #2196f3">Pie Chart</h1>
+  <h4 class="mb-5">Simple Pie Chart</h4>
   <div>
     <div class="d-flex justify-center">
       <canvas id="chartCanvas"></canvas>
@@ -27,14 +29,14 @@ export default {
       datasets: [
         {
           label: "My First Dataset",
-          data: [65, 59, 80, 81, 56, 55, 40],
+          data: [65, 59, 80, 70, 56, 55, 40],
           backgroundColor: [
-            "rgba(255, 99, 132, 0.2)",
-            "rgba(255, 159, 64, 0.2)",
-            "rgba(255, 205, 86, 0.2)",
-            "rgba(75, 192, 192, 0.2)",
-            "rgba(54, 162, 235, 0.2)",
-            "rgba(153, 102, 255, 0.2)",
+            "#61cdbb",
+            "#e8c1a0",
+            "#f47560",
+            "#f1e15b",
+            "#e8a838",
+            "#9c27b0",
             "rgba(201, 203, 207, 0.2)",
           ],
           borderColor: [
@@ -46,7 +48,7 @@ export default {
             "rgb(153, 102, 255)",
             "rgb(201, 203, 207)",
           ],
-          borderWidth: 1,
+          borderWidth: 0,
         },
       ],
     };

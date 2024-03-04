@@ -1,35 +1,73 @@
 <template>
-  <div ref="map" class="map-container"></div>
+  <div id="svgMap" ref="map"></div>
 </template>
 
 <script>
+import svgMap from "svgmap";
 import { onMounted, ref } from "vue";
-import L from "leaflet";
-
 export default {
-  name: "Map",
   setup() {
     const map = ref(null);
 
     onMounted(() => {
-      // Initialize the map
-      const mapInstance = L.map(map.value).setView([51.505, -0.09], 13);
-
-      // Add a tile layer
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "&copy; OpenStreetMap contributors",
-      }).addTo(mapInstance);
+      new svgMap({
+        targetElementID: "svgMap",
+        mouseWheelZoomEnabled: true,
+        hideFlag: false,
+        countries: {
+          UA: "dshs",
+        },
+        data: {
+          data: {
+            countresidents: {
+              name: "count residents",
+              format: "{0}",
+              thousandSeparator: ",",
+              thresholdMax: 50000,
+              thresholdMin: 1000,
+            },
+          },
+          applyData: "countresidents",
+          values: {},
+        },
+      });
     });
 
-    return {
-      map,
-    };
+    return { map };
   },
 };
 </script>
+<style>
+.svgMap-map-image {
+  color: rgb(47, 28, 255) !important;
+  background-color: rgb(165, 165, 165) !important;
+}
+.svgMap-tooltip {
+  background: rgba(31, 41, 55, 0.9);
+  box-shadow: 0px 4px 8px rgba(24, 33, 45, 0.4);
+  border-radius: 11px;
+  color: #ffffff !important;
+}
+.svgMap-tooltip .svgMap-tooltip-content-wrapper {
+  color: #ffffff !important;
+}
+.svgMap-tooltip .svgMap-tooltip-content .svgMap-tooltip-no-data {
+  color: #f20000 !important;
+}
+.svgMap-tooltip .svgMap-tooltip-content {
+  color: #ffffff !important;
+}
+.svgMap-tooltip .svgMap-tooltip-content table td span {
+  color: #ffffff;
+}
 
-<style scoped>
-.map-container {
-  /* max-width: 100%; */
+.svgMap-tooltip-pointer {
+  display: none;
+}
+.svgMap-tooltip .svgMap-tooltip-title {
+  padding: 0;
+}
+.svgMap-tooltip .svgMap-tooltip-content-container .svgMap-tooltip-content {
+  font-weight: 500;
 }
 </style>

@@ -1,4 +1,6 @@
 <template>
+  <h1 style="color: #2196f3">Bar Chart</h1>
+  <h4 class="mb-5">The minimum wage in months</h4>
   <div>
     <div class="d-flex justify-center align-center">
       <canvas id="chartCanvas"></canvas>

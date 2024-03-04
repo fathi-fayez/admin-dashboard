@@ -1,4 +1,6 @@
 <template>
+  <h1 style="color: #2196f3">Line Chart</h1>
+  <h4 class="mb-5">Simple Line Chart</h4>
   <div>
     <div class="d-flex justify-center"><canvas id="chartCanvas"></canvas></div>
   </div>

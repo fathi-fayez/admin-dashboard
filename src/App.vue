@@ -98,7 +98,7 @@
     </v-navigation-drawer>
 
     <!-- navbar -->
-    <v-app-bar>
+    <v-app-bar style="background-color: #2196f3">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-app-bar-title>Application</v-app-bar-title>

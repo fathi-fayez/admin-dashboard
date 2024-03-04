@@ -1,7 +1,7 @@
 <template>
   <div class="container d-flex mt-10 flex-wrap justify-center">
     <div class="line-chart">
-      <h2 class="title py-5">Revenue Generated</h2>
+      <h2 class="title pb-5">Revenue Generated</h2>
       <lineChart />
     </div>
     <div
@@ -15,7 +15,7 @@
       <div
         v-for="(transaction, index) in transactions"
         :key="index"
-        class="paper"
+        class="paper box-content"
         style="
           margin-top: 0.4rem;
           display: flex;
@@ -23,7 +23,7 @@
           align-items: center;
         "
       >
-        <div class="box-content" style="padding: 1.2rem">
+        <div style="padding: 1.2rem">
           <p>{{ transaction.txId }}</p>
           <p>{{ transaction.user }}</p>
         </div>
@@ -57,6 +57,9 @@ const transactions = ref([
   width: 700px;
   margin: 10px;
 }
+.title {
+  color: var(--primary-color);
+}
 @media (max-width: 768px) {
   .line-chart {
     width: 400px;
@@ -64,9 +67,9 @@ const transactions = ref([
 }
 
 .box-container {
-  background-color: #8096a7;
+  box-shadow: rgba(0, 0, 0, 0.35) -5px 1px 6px 0px;
 }
 .box-content {
-  background-color: #8096a7;
+  border-bottom: 1px solid rgba(106, 103, 103, 0.541);
 }
 </style>

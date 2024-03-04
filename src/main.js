@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import "./style.css";
 import router from "./router";
+import "svgmap/dist/svgMap.min.css";
 
 // Vuetify
 import "vuetify/styles";
