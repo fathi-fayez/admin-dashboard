@@ -86,7 +86,7 @@ import nutChart from "./chart.vue";
 .box {
   background-color: white;
   border-radius: 4px;
-  width: 320px;
+  width: 300px;
   padding: 20px;
   margin: 10px auto;
   box-shadow: rgba(0, 0, 0, 0.35) 4px 2px 6px 0px;
@@ -110,7 +110,7 @@ i {
     gap: 20px;
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 1400px) {
   .container {
     flex-wrap: wrap;
   }
