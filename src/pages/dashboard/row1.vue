@@ -86,10 +86,16 @@ import nutChart from "./chart.vue";
 .box {
   background-color: white;
   border-radius: 4px;
-  width: 350px;
+  width: 320px;
   padding: 20px;
   margin: 10px auto;
   box-shadow: rgba(0, 0, 0, 0.35) 4px 2px 6px 0px;
+}
+.left-content {
+  text-align: center;
+}
+.left-content span {
+  margin-top: 5px;
 }
 .dark-mode {
   background-color: rgb(43, 39, 39);

@@ -8,6 +8,7 @@
 </template>
 
 <script setup>
+import { onMounted } from "vue";
 import row1 from "./row1.vue";
 import row2 from "./row2.vue";
 </script>

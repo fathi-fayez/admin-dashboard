@@ -5,11 +5,6 @@
       <!-- avatar -->
       <v-row class="justify-center mt-5">
         <v-col cols="auto">
-          <v-avatar>
-            <v-img src="../src/assets/image.png"></v-img>
-          </v-avatar>
-        </v-col>
-        <v-col cols="auto">
           <div class="d-flex justify-center">
             <v-card width="300px">
               <v-card-title class="text-h6 text-md-h5 text-lg-h4"
@@ -98,7 +93,10 @@
     </v-navigation-drawer>
 
     <!-- navbar -->
-    <v-app-bar style="background-color: #2196f3">
+    <v-app-bar
+      style="background-color: #2196f3"
+      :class="{ 'dark-mode': $vuetify.theme.name === 'dark' }"
+    >
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-app-bar-title>Application</v-app-bar-title>
@@ -219,5 +217,8 @@ const isActive = (path) => {
 }
 .active-item {
   background-color: rgb(75, 73, 73);
+}
+.dark-mode {
+  background-color: rgb(33, 33, 33) !important;
 }
 </style>

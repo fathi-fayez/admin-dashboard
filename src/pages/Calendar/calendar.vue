@@ -119,7 +119,7 @@ b {
 .demo-app-sidebar {
   width: 300px;
   line-height: 1.5;
-  background: #74c8e9;
+  background: #607d8b;
   border-right: 1px solid #d3e2e8;
 }
 

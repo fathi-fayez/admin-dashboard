@@ -39,8 +39,11 @@ export default {
 </script>
 <style>
 .svgMap-map-image {
-  color: rgb(47, 28, 255) !important;
   background-color: rgb(165, 165, 165) !important;
+}
+.svgMap-country {
+  background-color: red !important;
+  color: red !important;
 }
 .svgMap-tooltip {
   background: rgba(31, 41, 55, 0.9);

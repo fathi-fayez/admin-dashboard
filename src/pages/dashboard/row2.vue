@@ -44,7 +44,7 @@
 </template>
 <script setup>
 import { ref } from "vue";
-import lineChart from "../Line Chart/lineChart.vue";
+import lineChart from "./lineChartPrewiew.vue";
 const transactions = ref([
   { txId: "123456", user: "User A", date: "2024-02-28", cost: 10.99 },
   { txId: "654321", user: "User B", date: "2024-02-27", cost: 15.75 },
@@ -67,7 +67,7 @@ const transactions = ref([
 }
 
 .box-container {
-  box-shadow: rgba(0, 0, 0, 0.35) -5px 1px 6px 0px;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 13px 1px; */
 }
 .box-content {
   border-bottom: 1px solid rgba(106, 103, 103, 0.541);

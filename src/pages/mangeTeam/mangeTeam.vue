@@ -1,5 +1,5 @@
 <template>
-  <v-table fixed-header height="600px">
+  <v-table fixed-header>
     <thead>
       <tr>
         <th class="text-left">Id</th>
@@ -46,6 +46,22 @@ const Members = ref([
     access: "Admin",
   },
   {
+    id: 1,
+    name: "Khaled mohamed",
+    email: "khaledmohamed@gmail.com",
+    age: 35,
+    phone: "(665)121-5454",
+    access: "Admin",
+  },
+  {
+    id: 1,
+    name: "Khaled mohamed",
+    email: "khaledmohamed@gmail.com",
+    age: 35,
+    phone: "(665)121-5454",
+    access: "Admin",
+  },
+  {
     id: 2,
     name: "Amr elsayed",
     email: "amrelsayed@gmail.com",
@@ -59,7 +75,7 @@ const Members = ref([
     email: "Alaakamel@gmail.com",
     age: 45,
     phone: "(422)982-6739",
-    access: "Admin",
+    access: "Manager",
   },
   {
     id: 4,
