@@ -1,6 +1,6 @@
 <template>
   <!-- container -->
-  <div class="container d-flex justify-space-between flex-wrap">
+  <div class="container d-flex justify-space-between">
     <!-- box one -->
     <div
       class="box d-flex justify-space-between align-center"
@@ -108,6 +108,11 @@ i {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+  }
+}
+@media (max-width: 1000px) {
+  .container {
+    flex-wrap: wrap;
   }
 }
 </style>
